@@ -46,8 +46,6 @@ router.post('/createEvent',multer(multerConfig).single('poster'),function(req,re
 	var emailId = req.body.emailId;
 	var price = req.body.price;
 	var poster = req.file.path;
-
-	//console.log('Path: ',req.file);
 	
 	var newEvent = new Event({
 		eventName: eventName,
@@ -64,9 +62,23 @@ router.post('/createEvent',multer(multerConfig).single('poster'),function(req,re
 		console.log(event);
 	});
 
-	req.flash('success_msg', 'Event Published');
+	upload(req, res, function (err) {
+		if (err) {
+		  // An error occurred when uploading
+		}
 	
+		// Everything went fine
+		res.json({
+			success: true,
+			message: 'Image'
+		});
+	  });
+
+	req.flash('success_msg', 'Event Published');
+>>>>>>> parent of c59c246... working upload at events.js
 	res.redirect('/');
+
+	console.log('Event Body: ',req.body);
 });
 
 module.exports = router;

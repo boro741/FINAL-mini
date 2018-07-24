@@ -14,7 +14,8 @@ const multerConfig = {
       //Then give the file a unique name
       filename: function(req, file, next){
           console.log(file);
-          next(null, file.originalname);
+          const ext = file.mimetype.split('/')[1];
+          next(null, file.fieldname + '-' + Date.now() + '.'+ext);
         }
       }),   
       
@@ -37,7 +38,6 @@ const multerConfig = {
     };
 
 router.post('/',multer(multerConfig).single('photo'),function(req,res){
-    console.log('req file:',req.file);
     res.send('Complete!');
 });
 
