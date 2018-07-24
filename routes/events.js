@@ -75,7 +75,6 @@ router.post('/createEvent',multer(multerConfig).single('poster'),function(req,re
 	  });
 
 	req.flash('success_msg', 'Event Published');
->>>>>>> parent of c59c246... working upload at events.js
 	res.redirect('/');
 
 	console.log('Event Body: ',req.body);
