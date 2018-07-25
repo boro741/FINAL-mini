@@ -1,31 +1,16 @@
-<!DOCTYPE html>
+<!-- index.html -->
 <html>
-    <head>
-        <title> Test Page</title>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script src="node_modules/qrcode/build/qrcode.js"></script>
+    <script src="bundle.js"></script> 
     <script>
-      $(document).ready(function(){
-        var user,pass;
-        $("#submit").click(function(){
-          email=$("#email").val();
-          pass=$("#password").val();
-          $.post("http://localhost:3000/users/participants",{email: email,password: pass}, function(data){
-            if(data.email != "" || data.password != "")
-              {
-                alert('Done');
-              } else{
-                  alert('Please enter valid email id and password.');
-              }
-          });
+        QRCode.toCanvas(document.getElementById('canvas'), 'Hello', function (error) {
+          if (error) console.error(error)
+          console.log('success!');
         });
-      });
+    
+    //  hello();
     </script>
-    </head>
-<body>
-     <h1>Login!</h1>
-    <input type="text" id="email" size="40"><br>
-    <input type="password" id="password" size="40"><br>
-    <input type="button" id="submit" value="Submit">
-</body>
-
+  </body>
 </html>

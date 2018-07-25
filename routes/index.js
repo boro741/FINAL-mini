@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var QRCode = require('qrcode')
 
 var Event = require('../models/event').Event;
 
@@ -61,12 +62,20 @@ router.get('/regParticipant', ensureAuthenticated, function(req, res){
 });
 
 router.get('/teamReg', ensureAuthenticated, function(req, res){
-	res.render('teamReg');
+	res.render('teamReg',{eventName});
 });
 
 router.post('/regEvent', ensureAuthenticated, function(req, res){
-	req.flash('success_msg', 'Team Registered');
-	res.redirect('/teamReg');
+	var ev = req.body.eventSelect;
+	var QRCode = require('qrcode')
+	var url;
+	var team = Math.floor(Math.random() * 100) + 1;
+	QRCode.toDataURL('Event Name: '+ev+' Team number: '+team, function (err, url) {
+		url = url;
+		res.send('<img src="'+ url+'">'); 
+	});
+	//console.log(url);
+	//res.render('qr',url);
 });
 
 router.get('/test',function(req, res){

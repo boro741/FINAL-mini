@@ -4,7 +4,7 @@
   crossorigin="anonymous"></script>
 
 <form action="/regEvent" method="post" id="eveForm" class="form-group">
-  <h2>Event Name</h2>
+  <h2>Team Register</h2>
   
   <hr>
     <h3>Participant 1:</h3>
@@ -18,10 +18,18 @@
 
   <hr>
     <span id="teamMates"></span>
+  <br>
+  <label for="sel1">Select Event:</label>
+      <select class="form-control" name="eventSelect" id="selectBox">
+      </select>  
   <hr>  
   <input class="btn btn-primary" type="submit" value="Submit">
-</form>
 
+</form>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script>
     var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -38,10 +46,13 @@
     }
 };
 
-     $(document).ready(function(){
-         var n = getUrlParameter('size') || 1;
-        for(var i=1; i < n; i++){
-          $('<h3>Participant: '+ (i+1) +'</h3><br><label for="rollno">Roll no. : </label><input type="text" name="" id="contact" class="form-control"><br><br><label for="contact">Contact Number: </label><input type="number" id="contact" class="form-control">').appendTo("#teamMates");
-        }
-     });
+  var eventName = '{{eventName}}';
+  eventName = eventName.split(',');
+  //console.log('EventName:: ',eventName[0]);
+
+  eventName.forEach(function(e){
+     $("#selectBox").append('<option value="'+e+'">'+e+'</option>');
+  });
+
+  
 </script>
