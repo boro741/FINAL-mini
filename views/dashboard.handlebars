@@ -9,22 +9,30 @@
       max-width: 180px;
       max-height: 180px
   }
+  
+  .dashboard{
+      width: 100%;
+      height: 1000px;
+  }
+
 </style>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
+<div class="dashboard">
  <h2 class="page-header">Dashboard</h2>
 <p>Welcome to your dashboard</p> 
 
-<button ><a href="/advertise">Advertise Event </a></button>
-<button id="teamReg">Register Partipants</button>
-<button  id="createEvent">+ Create Event</button>
+<a class="btn btn-primary" role="button" href="/advertise">Advertise Event </a>
+<button class="btn btn-primary" id="teamReg">Register Partipants</button>
+<button class="btn btn-primary" id="createEvent">+ Create Event</button>
 
 <div id="teamSizeContainer"></div>
 <div id="eventContainer"></div>
 <div id="adContainer"></div>
+</div>
 </body>
 <script>
     $("#createEvent").click(function(){

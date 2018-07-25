@@ -1,6 +1,6 @@
 <form action="/advertise" method="post">
-  <input type="checkbox" name="advType" value="Bike"> SMS<br>
-  <input type="checkbox" name="advType" value="Car" > Email<br>
+  <input type="checkbox" name="SMS" value="sms"> SMS<br>
+  <input type="checkbox" name="Email" value="email" > Email<br>
   
   <hr>
 
@@ -18,7 +18,27 @@
   <input type="checkbox" name="year" value="III"> III<br>
   <input type="checkbox" name="year" value="IV" > IV<br>
 
+  <br>
+
+   <label for="sel1">Select Event:</label>
+      <select class="form-control" id="selectBox">
+      </select>
+
     <hr>
 
-  <input type="submit" value="Advertise">
+  <input class="btn btn-primary" type="submit" value="Advertise">
 </form>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+  var eventName = '{{eventName}}';
+  eventName = eventName.split(',');
+  //console.log('EventName:: ',eventName[0]);
+
+  eventName.forEach(function(e){
+     $("#selectBox").append('<option value="'+e+'">'+e+'</option>');
+  });
+ 
+</script>

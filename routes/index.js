@@ -10,28 +10,33 @@ function ensureAuthenticated(req, res, next){
 		res.redirect('/users/login');
 	}
 }
+var eventName = new Array();
+var description = new Array();
+var poster = new Array();
+var eventDate = new Array();
+var mobileNo = new Array();
+var emailId = new Array();
+var price = new Array();
+
+(function(){ 
+
+Event.find().then(function(event){
+	event.forEach(function(ev){
+		//console.log('ev:: ',ev);
+		eventName.push(ev.eventName);
+		description.push(ev.description);
+		poster.push(ev.poster);
+		eventDate.push(ev.eventDate);
+		mobileNo.push(ev.mobileNo);
+		emailId.push(ev.emailId);
+		price.push(ev.price);
+	});
+});
+})(); 
 
 // Get Homepage
 router.get('/',function(req, res){
-	var eventName = new Array();
-	var description = new Array();
-	var poster = new Array();
-	var eventDate = new Array();
-	var mobileNo = new Array();
-	var emailId = new Array();
-	var price = new Array();
-	Event.find().then(function(event){
-		event.forEach(function(ev){
-			//console.log('ev:: ',ev);
-			eventName.push(ev.eventName);
-			description.push(ev.description);
-			poster.push(ev.poster);
-			eventDate.push(ev.eventDate);
-			mobileNo.push(ev.mobileNo);
-			emailId.push(ev.emailId);
-			price.push(ev.price);
-		});
-	});
+	
 	res.render('home',{
 		eventName,
 		description,
@@ -44,7 +49,7 @@ router.get('/',function(req, res){
 });
 
 router.get('/advertise',ensureAuthenticated,function(req, res){
-	res.render('advertise');
+	res.render('advertise',{eventName});
 });
 
 router.get('/dashboard', ensureAuthenticated, function(req, res){

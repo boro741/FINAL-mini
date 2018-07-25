@@ -1,16 +1,24 @@
 <link rel="stylesheet" href="/css/bootstrap.css" />
 <style>
   #postId{
-      max-width: 400px;
-      max-height: 180px
+      width: 800px;
+      height: 300px
   }
+
+  ul {
+      list-style: none;
+  }
+  .page-header{
+      margin: 0%;
+  }
+
 </style>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
  <h2 class="page-header">Home</h2>
-<p>Welcome to your Home page</p> 
+<h4>Upcoming Events:</h4> 
 <ul class="post"></ul>
 
 <script>
@@ -29,7 +37,7 @@
            if(!url) return;
             var posterURL = window.location.href + url;
            // console.log('URL: ',url);
-            $("<li> <img id='postId' src='"+ posterURL +"'><li />").appendTo('ul.post')
+            $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
         console.log('posts: ',eventName);
     });
