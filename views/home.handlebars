@@ -36,7 +36,7 @@
            //console.log("test");
            if(!url) return;
             var posterURL = window.location.href + url;
-           // console.log('URL: ',url);
+            console.log('URL: ',url);
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
         console.log('posts: ',eventName);
