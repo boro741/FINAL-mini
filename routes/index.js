@@ -64,6 +64,11 @@ router.get('/teamReg', ensureAuthenticated, function(req, res){
 	res.render('teamReg');
 });
 
+router.post('/regEvent', ensureAuthenticated, function(req, res){
+	req.flash('success_msg', 'Team Registered');
+	res.redirect('/teamReg');
+});
+
 router.get('/test',function(req, res){
 	res.render('test');
 });
