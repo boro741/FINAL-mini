@@ -24,10 +24,10 @@
 <script>
     $(document).ready(function(){
 	        var poster = '{{poster}}';
-
-            posts = poster.split(',');
+            console.log(poster);
+           // posts = poster.split(',');
         
-        posts.forEach(function(p){
+       /* posts.forEach(function(p){
            //console.log("test");
            console.log('url: ',p);
            if(!p) return;
@@ -40,6 +40,6 @@
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
         //console.log('posts: ',eventName);
-    });
+    });*/
     
 </script>
