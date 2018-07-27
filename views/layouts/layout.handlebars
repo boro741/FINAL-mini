@@ -4,25 +4,62 @@
 	<title>MRITS - Student Chapter</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" />
 	<link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.css" />
+  <link rel="stylesheet" href="/css/animate.css" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:700" rel="stylesheet">
+  <script type="text/javascript" src="/js/wow.min.js"></script>
+  <style>
+    *{
+      font-family: 'Noto Serif', serif;
+  } 
+    .header{
+      position: relative;
+      bottom: 25px;
+      padding-top: 2%;
+      background-color: #21966f;;
+      box-shadow: 10px 10px 5px grey;
+      box-sizing: border-box;
+    }
+    .head{
+      color: white;
+    }
+
+    .logo{
+      margin: 1%;
+    }
+    .logo a {
+      text-decoration: none;
+    }
+
+    .logo a:hover{
+      color: yellow;
+    }
+  </style>
+  <script>
+			new WOW().init();
+	</script>
 </head>
 <body>
-	<div class="container">
-      <div class="header clearfix">
+  
+  <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a class="head" href="/">Home</a></li>
+            <li role="presentation"><a class="head" href="http://localhost:3000/#timeline">Timeline</a></li>
             {{#if user}}
-              <li role="presentation"><a href="/dashboard">Dashboard</a></li>
-              <li role="presentation"><a href="/users/logout">Logout</a></li>
+              <li role="presentation"><a class="head" href="/dashboard">Dashboard</a></li>
+              <li role="presentation"><a class="head" href="/users/logout">Logout</a></li>
             {{else}}
-              <li role="presentation"><a href="/users/login">Login</a></li>
-              <li role="presentation"><a href="/users/register">Register</a></li>
+              <li role="presentation"><a class="head" href="/users/login">Login</a></li>
+              <li role="presentation"><a class="head" href="/users/register">Register</a></li>
             {{/if}}
           </ul>
         </nav>
-        <h3 class="text-muted"><a href="/">MRITS - Student Chapter</a></h3>
+        <h3 class="logo text-muted"><a class="head" href="/">MRITS - Student Chapter</a></h3>
       </div>
 
+	<div class="container">
+      
 
       <div class="row">
         <div class="col-lg-12">
@@ -40,15 +77,63 @@
           
           {{{body}}}
         </div>
+</div>
+</div> <!-- /container -->
 
-        
-      </div>
+<!---------------- Event Timeline ---------------->
+	<div id="event-timeline">
+		<section id="timeline">
+				<article class="wow slideInLeft" data-delay="10s">
+					<div class="inner">
+						<span class="date">
+						<span class="day">25<sup>th</span>
+						<span class="month">Jul</span>
+						<span class="year">2018</span>
+						</span>
+						<h2>Ebullienza</h2>
+						<p>3 days Non-Technical event by <b>ISTE</b></p>
+					</div>
+				</article>				
+        	<article class="wow slideInRight" data-delay="10s">
+							  <div class="inner">
+								<span class="date">
+								  <span class="day">27<sup>th</sup></span>
+								  <span class="month">Jan</span>
+								  <span class="year">2018</span>
+								</span>
+								<h2>Bein Venido</h2>
+								<p>Technical event presented by <b>ISTE</b>.</p>
+							  </div>
+					</article>
+          <article class="wow slideInLeft" data-delay="10s">
+							  <div class="inner">
+								<span class="date">
+								  <span class="day">1<sup>st</sup></span>
+								  <span class="month">Jan</span>
+								  <span class="year">2018</span>
+								</span>
+								<h2>CSI BrainWaves</h2>
+								<p>Technical event presented by <b>CSI</b>.</p>
+							  </div>
+					</article>
+             <article class="wow slideInRight" data-delay="10s">
+							  <div class="inner">
+								<span class="date">
+								  <span class="day">1<sup>st</sup></span>
+								  <span class="month">Jan</span>
+								  <span class="year">2018</span>
+								</span>
+								<h2>Technoton</h2>
+								<p>Technical event presented by <b>IEE and IETE</b>.</p>
+							  </div>
+					</article>
+		</section>
+	</div>
 
-      <footer class="footer">
-        <p>&copy; Created By - Pavan Lal Boro</p>
-      </footer>
-
-    </div> <!-- /container -->
+<footer class="footer">
+    <p style="text-align:center;">MIT License &copy; 2018  &bull; Pavan Boro, Manoj, Rehmat Wali </p>
+</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="/js/jquery.min.js"></script>
 </body>
 </html>

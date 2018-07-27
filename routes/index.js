@@ -53,6 +53,7 @@ router.get('/',function(req, res){
 });
 
 router.get('/advertise',ensureAuthenticated,function(req, res){
+	findEve();
 	res.render('advertise',{eventName});
 });
 
@@ -65,6 +66,7 @@ router.get('/regParticipant', ensureAuthenticated, function(req, res){
 });
 
 router.get('/teamReg', ensureAuthenticated, function(req, res){
+	findEve();
 	res.render('teamReg',{eventName});
 });
 

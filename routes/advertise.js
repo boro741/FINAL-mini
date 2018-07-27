@@ -13,7 +13,7 @@ sgMail.setApiKey('SG.yDnIoBtHR5uAZK87fcc7Hg.4o-xgTCKs9f_JW1K_5qo0SR0398zN86DPa-b
 router.post('/', function(req,res){
     console.log(req.body);
     req.flash('success_msg', 'Event Advertised');
-    res.redirect('/');
+    res.redirect('/advertise');
     if(req.body.SMS == 'sms'){
         client.messages
             .create({

@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/bootstrap.css" />
-<style>
+<style> 
+
   #postId{
       width: 800px;
       height: 300px
@@ -12,31 +13,98 @@
       margin: 0%;
   }
 
+  /* Lightbox */
+  .product-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: none;
+}
+
+.product-image-overlay .product-image-overlay-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    line-height: 35px;
+    font-size: 20px;
+    color: #eee;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product-image-overlay img {
+    width: auto;
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 </style>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
- <h2 class="page-header">Home</h2>
-<h4>Upcoming Events:</h4> 
+
+<div id="loader-wrapper">
+	<div id="loader"></div>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>	
+</div>
+
+<h2 class="page-header">Home</h2>
+<h4 >Upcoming Events:</h4> 
 <ul class="post"></ul>
 
 <script>
+            $(document).ready(function() {
+				setTimeout(function(){
+					$('body').addClass('loaded');
+					$('h1').css('color','#222222');
+				}, 1000);
+				
+			});
+    
+
+
     $(document).ready(function(){
 	        var poster = '{{poster}}';
 
 
         posts = poster.split(',');
       
-
+        var i = 0;
         posts.forEach(function(url){
            //console.log("test");
            if(!url) return;
+           // This is for local 
             var posterURL = window.location.href + url;
-           // console.log('URL: ',url);
-            $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
+
+            // Heroku URL:
+            //var posterURL = 'https://s3.ap-south-1.amazonaws.com/student-chapt/' + url;
+            console.log('URL: ',posterURL);
+
+            if(i%2 == 0){
+                $("<br><br><li><a href='"+posterURL+"'><span class='product-image-overlay-close'> <img class='wow slideInLeft ' id='postId' src='"+ posterURL +"'></span></a><li />").appendTo('ul.post');
+            } else{
+                $("<br><br><li><a href='"+posterURL+"'><span class='product-image-overlay-close'> <img class='wow slideInRight ' id='postId' src='"+ posterURL +"'></span></a><li />").appendTo('ul.post');
+            }
+            i++; 
         }); 
         //console.log('posts: ',eventName);
     });
-    
+
 </script>
