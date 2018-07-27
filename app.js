@@ -11,6 +11,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var multer = require('multer');
+var aws = require('aws-sdk');
+
+const S3_BUCKET = process.env.S3_BUCKET;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/stuChapt');
 var db = mongoose.connection;
