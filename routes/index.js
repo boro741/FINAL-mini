@@ -21,7 +21,6 @@ var emailId = new Array();
 var price = new Array();
 
 
-function findEvent(){
 	Event.find().then(function(event){
 		event.forEach(function(ev){
 			//console.log('ev:: ',ev);
@@ -35,9 +34,7 @@ function findEvent(){
 			price.push(ev.price);
 		});
 	});
-}
 
-findEvent();
 
 // Get Homepage
 router.get('/',function(req, res){
