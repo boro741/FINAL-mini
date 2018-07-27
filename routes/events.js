@@ -64,14 +64,14 @@ router.post('/createEvent',upload.array('poster', 3),function(req,res){
 	var mobileNo = req.body.mobileNo;
 	var emailId = req.body.emailId;
 	var price = req.body.price;
-	//var poster = req.file.path;
-
+	var poster = req.file.path;
+	//var poster = req.body.poster;
 	//console.log('Path: ',req.file);
 	
 	var newEvent = new Event({
 		eventName: eventName,
 		description: description,
-		//poster: poster,
+		poster: poster,
 		eventDate: eventDate,
 		mobileNo: mobileNo,
 		emailId: emailId,
