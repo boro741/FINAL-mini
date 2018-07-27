@@ -3,6 +3,7 @@ var router = express.Router();
 var aws = require('aws-sdk');
 var multer = require('multer');
 var multerS3 = require('multer-s3')
+const path = require('path');
 
 var Event = require('../models/event');
 var s3 = new aws.S3({ /* ... */ })
@@ -12,7 +13,7 @@ var upload = multer({
     s3: s3,
     bucket: 'student-chapt',
     metadata: function (req, file, cb) {
-			console.log('fileName: ',file.originalname);
+			//console.log('fileName: ',file.originalname);
       cb(null, {fieldName: file.originalname});
     },
     key: function (req, file, cb) {
@@ -64,18 +65,18 @@ router.post('/createEvent',upload.array('poster', 3),function(req,res){
 	var mobileNo = req.body.mobileNo;
 	var emailId = req.body.emailId;
 	var price = req.body.price;
-	//var poster = req.file.path;
-
-	//console.log('Path: ',req.file);
+	// var poster = req.file.poster;
+	var poster = req.files[0].originalname;
+	// console.log('Path: ',);
 	
 	var newEvent = new Event({
-		eventName: eventName,
-		description: description,
-		//poster: poster,
-		eventDate: eventDate,
-		mobileNo: mobileNo,
-		emailId: emailId,
-		price: price
+		// eventName: eventName,
+		// description: description,
+		// //poster: poster,
+		// eventDate: eventDate,
+		// mobileNo: mobileNo,
+		// emailId: emailId,
+		// price: price
 	});
 
 	Event.createEvent(newEvent, function (err, event) {

@@ -20,27 +20,25 @@ var mobileNo = new Array();
 var emailId = new Array();
 var price = new Array();
 
-
-	Event.find().then(function(event){
-		event.forEach(function(ev){
+Event.find().then(function(event){
+	event.forEach(function(ev){
 			//console.log('ev:: ',ev);
-			eventName.push(ev.eventName);
-			description.push(ev.description);
-			poster.push(ev.poster);
-			p.push(ev.poster);
-			eventDate.push(ev.eventDate);
-			mobileNo.push(ev.mobileNo);
-			emailId.push(ev.emailId);
-			price.push(ev.price);
-		});
+		eventName.push(ev.eventName);
+		description.push(ev.description);
+		poster.push(ev.poster);
+		eventDate.push(ev.eventDate);
+		mobileNo.push(ev.mobileNo);
+		emailId.push(ev.emailId);
+		price.push(ev.price);
 	});
+});
 
 
 // Get Homepage
 router.get('/',function(req, res){
 	
 	res.render('home',{
-		p
+		poster
 	});
 });
 
