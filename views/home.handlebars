@@ -23,7 +23,7 @@
 
 <script>
     $(document).ready(function(){
-	        var poster = '{{eventName}}';
+	        var poster = '{{poster}}';
             console.log(poster);
            // posts = poster.split(',');
         
@@ -39,7 +39,7 @@
             console.log('URL: ',posterURL);
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
-        //console.log('posts: ',eventName);
-    });*/
+        //console.log('posts: ',eventName);*/
+    });
     
 </script>
