@@ -43,7 +43,7 @@ findEvent();
 router.get('/',function(req, res){
 	
 	res.render('home',{
-		poster
+		p
 	});
 });
 
