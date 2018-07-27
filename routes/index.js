@@ -21,13 +21,6 @@ var price = new Array();
 
 
 function findEvent(){
-	eventName = [];
-	description = [];
-	poster = [];
-	eventDate = [];
-	mobileNo = [];
-	emailId = [];
-	price = [];
 	Event.find().then(function(event){
 		event.forEach(function(ev){
 			//console.log('ev:: ',ev);
@@ -42,18 +35,24 @@ function findEvent(){
 	});
 }
 
+findEvent();
 
 // Get Homepage
 router.get('/',function(req, res){
-	findEvent();
-	console.log('po:: ',poster);
+	
 	res.render('home',{
-		poster
+		eventName,
+		description,
+		poster,
+		eventDate,
+		mobileNo,
+	 	emailId,
+	 	price
 	});
 });
 
 router.get('/advertise',ensureAuthenticated,function(req, res){
-	findEvent();
+	
 	res.render('advertise',{eventName});
 });
 
@@ -66,7 +65,7 @@ router.get('/regParticipant', ensureAuthenticated, function(req, res){
 });
 
 router.get('/teamReg', ensureAuthenticated, function(req, res){
-	findEvent();
+	
 	res.render('teamReg',{eventName});
 });
 
