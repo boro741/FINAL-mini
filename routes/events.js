@@ -12,10 +12,11 @@ var upload = multer({
     s3: s3,
     bucket: 'student-chapt',
     metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname});
+			console.log('fileName: ',file.originalname);
+      cb(null, {fieldName: file.originalname});
     },
     key: function (req, file, cb) {
-      cb(null, Date.now().toString())
+      cb(null, file.originalname);
     }
   })
 })
@@ -45,7 +46,6 @@ var upload = multer({
 // 			const image = file.mimetype.startsWith('image/');
 // 			if(image){
 // 			//	console.log('photo uploaded');
-// 				//uploadToS3(image);
 // 			  next(null, true);
 // 			}else{
 // 			  console.log("file not supported");
