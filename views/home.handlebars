@@ -23,15 +23,12 @@
 
 <script>
     $(document).ready(function(){
-        	var eventName = '{{eventName}}';
-	        var description = '{{description}}';
 	        var poster = '{{poster}}';
-	        var eventDate = '{{eventDate}}';
-	        var mobileNo = '{{mobileNo}}';
-	        var emailId = '{{emailId}}';
-	        var price = '{{price}}';
+
 
         posts = poster.split(',');
+      
+
         posts.forEach(function(url){
            //console.log("test");
            if(!url) return;
@@ -42,7 +39,7 @@
             var posterURL = 'https://s3.ap-south-1.amazonaws.com/student-chapt/' + url;
             console.log('URL: ',posterURL);
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
-        });
+        }); 
         //console.log('posts: ',eventName);
     });
     
