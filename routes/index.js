@@ -39,15 +39,9 @@ findEvent();
 
 // Get Homepage
 router.get('/',function(req, res){
-	
+	console.log('po:: ',poster);
 	res.render('home',{
-		eventName,
-		description,
-		poster,
-		eventDate,
-		mobileNo,
-	 	emailId,
-	 	price
+		poster
 	});
 });
 
