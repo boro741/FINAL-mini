@@ -65,18 +65,18 @@ router.post('/createEvent',upload.array('poster', 3),function(req,res){
 	var mobileNo = req.body.mobileNo;
 	var emailId = req.body.emailId;
 	var price = req.body.price;
-	// var poster = req.file.poster;
+	 var poster = req.file.poster;
 	var poster = req.files[0].originalname;
 	// console.log('Path: ',);
 	
 	var newEvent = new Event({
-		// eventName: eventName,
-		// description: description,
-		// //poster: poster,
-		// eventDate: eventDate,
-		// mobileNo: mobileNo,
-		// emailId: emailId,
-		// price: price
+		eventName: eventName,
+		description: description,
+		poster: poster,
+		eventDate: eventDate,
+		mobileNo: mobileNo,
+		emailId: emailId,
+		price: price
 	});
 
 	Event.createEvent(newEvent, function (err, event) {
