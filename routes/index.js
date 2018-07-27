@@ -21,14 +21,14 @@ var price = new Array();
 
 
 function findEvent(){
+	eventName = [];
+	description = [];
+	poster = [];
+	eventDate = [];
+	mobileNo = [];
+	emailId = [];
+	price = [];
 	Event.find().then(function(event){
-		eventName = [];
-		description = [];
-		poster = [];
-		eventDate = [];
-		mobileNo = [];
-		emailId = [];
-		price = [];
 		event.forEach(function(ev){
 			//console.log('ev:: ',ev);
 			eventName.push(ev.eventName);
