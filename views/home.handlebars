@@ -32,12 +32,8 @@
         posts.forEach(function(url){
            //console.log("test");
            if(!url) return;
-           // This is for local 
-            //var posterURL = window.location.href + url;
-
-            // Heroku URL:
-            var posterURL = 'https://s3.ap-south-1.amazonaws.com/student-chapt/' + url;
-            console.log('URL: ',posterURL);
+            var posterURL = window.location.href + url;
+           // console.log('URL: ',url);
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
         //console.log('posts: ',eventName);

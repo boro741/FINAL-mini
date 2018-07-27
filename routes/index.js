@@ -22,27 +22,27 @@ var price = new Array();
 
 function findEve(){
 	eventName =  [];
-description = [];
- poster =[];
- p =[];
- eventDate = [];
- mobileNo = [];
- emailId = [];
- price = [];
-	Event.find().then(function(event){
-		event.forEach(function(ev){
-				//console.log('ev:: ',ev);
-			eventName.push(ev.eventName);
-			description.push(ev.description);
-			poster.push(ev.poster);
-			eventDate.push(ev.eventDate);
-			mobileNo.push(ev.mobileNo);
-			emailId.push(ev.emailId);
-			price.push(ev.price);
-		});
-	});	
-}
+	description = [];
+	 poster =[];
+	 p =[];
+	 eventDate = [];
+	 mobileNo = [];
+	 emailId = [];
+	 price = []; 
 
+Event.find().then(function(event){
+	event.forEach(function(ev){
+		//console.log('ev:: ',ev);
+		eventName.push(ev.eventName);
+		description.push(ev.description);
+		poster.push(ev.poster);
+		eventDate.push(ev.eventDate);
+		mobileNo.push(ev.mobileNo);
+		emailId.push(ev.emailId);
+		price.push(ev.price);
+	});
+});
+}
 
 // Get Homepage
 router.get('/',function(req, res){
@@ -53,7 +53,6 @@ router.get('/',function(req, res){
 });
 
 router.get('/advertise',ensureAuthenticated,function(req, res){
-	findEve();
 	res.render('advertise',{eventName});
 });
 
@@ -66,7 +65,6 @@ router.get('/regParticipant', ensureAuthenticated, function(req, res){
 });
 
 router.get('/teamReg', ensureAuthenticated, function(req, res){
-	findEve();
 	res.render('teamReg',{eventName});
 });
 

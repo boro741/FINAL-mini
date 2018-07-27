@@ -15,7 +15,7 @@ var aws = require('aws-sdk');
 
 const S3_BUCKET = process.env.S3_BUCKET;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/stuChapt');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/stuChaptLocal');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
