@@ -65,7 +65,7 @@ router.post('/createEvent',upload.array('poster', 3),function(req,res){
 	var mobileNo = req.body.mobileNo;
 	var emailId = req.body.emailId;
 	var price = req.body.price;
-	 var poster = req.file.poster;
+	// var poster = req.file.poster;
 	var poster = req.files[0].originalname;
 	// console.log('Path: ',);
 	
