@@ -14,6 +14,7 @@ function ensureAuthenticated(req, res, next){
 var eventName = new Array();
 var description = new Array();
 var poster = new Array();
+var p = new Array();
 var eventDate = new Array();
 var mobileNo = new Array();
 var emailId = new Array();
@@ -27,6 +28,7 @@ function findEvent(){
 			eventName.push(ev.eventName);
 			description.push(ev.description);
 			poster.push(ev.poster);
+			p.push(ev.poster);
 			eventDate.push(ev.eventDate);
 			mobileNo.push(ev.mobileNo);
 			emailId.push(ev.emailId);
