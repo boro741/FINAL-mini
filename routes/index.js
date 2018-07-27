@@ -41,13 +41,7 @@ findEvent();
 router.get('/',function(req, res){
 	
 	res.render('home',{
-		eventName,
-		description,
-		poster,
-		eventDate,
-		mobileNo,
-	 	emailId,
-	 	price
+		poster
 	});
 });
 
