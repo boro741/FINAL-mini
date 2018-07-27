@@ -23,23 +23,39 @@
 
 <script>
     $(document).ready(function(){
+<<<<<<< HEAD
 	        var poster = '{{p}}';
             console.log(poster);
            // posts = poster.split(',');
         
        /* posts.forEach(function(p){
+=======
+        	var eventName = '{{eventName}}';
+	        var description = '{{description}}';
+	        var poster = '{{poster}}';
+	        var eventDate = '{{eventDate}}';
+	        var mobileNo = '{{mobileNo}}';
+	        var emailId = '{{emailId}}';
+	        var price = '{{price}}';
+
+        posts = poster.split(',');
+        posts.forEach(function(url){
+>>>>>>> parent of 5151301... fixed getting img from s3 to homepage
            //console.log("test");
-           console.log('url: ',p);
-           if(!p) return;
+           if(!url) return;
            // This is for local 
             //var posterURL = window.location.href + url;
 
             // Heroku URL:
-            var posterURL = 'https://s3.ap-south-1.amazonaws.com/student-chapt/' + p;
+            var posterURL = 'https://s3.ap-south-1.amazonaws.com/student-chapt/' + url;
             console.log('URL: ',posterURL);
             $("<br><br><li><a href='"+posterURL+"'> <img id='postId' src='"+ posterURL +"'></a><li />").appendTo('ul.post');
         }); 
+<<<<<<< HEAD
         //console.log('posts: ',eventName);*/
+=======
+        console.log('posts: ',eventName);
+>>>>>>> parent of 5151301... fixed getting img from s3 to homepage
     });
     
 </script>
