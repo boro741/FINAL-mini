@@ -11,13 +11,14 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
 
 router.post('/', function(req,res){
-    console.log(req.body);
+    console.log('req.body:: ',req.body.selectPicker);
+    var event = req.body.selectPicker;
     req.flash('success_msg', 'Event Advertised');
     res.redirect('/advertise');
     if(req.body.SMS == 'sms'){
         client.messages
             .create({
-                body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+                body: 'New upcoming event - '+event+' has been posted.',
                 from: '+18577633710 ',
                 to: '+919700332950'
             })
@@ -36,7 +37,7 @@ router.post('/', function(req,res){
             from: 'pavanboro15@gmail.com',
             subject: 'MRITS Event',
             text: 'Participate in upcoming new events.',
-            html: '<strong>Explore, learn and have fun participating in events.</strong>',
+            html: '<strong>Explore, learn and have fun participating in events.</strong><br>New upcoming event - '+event+' has been posted.',
           };
           sgMail.send(msg, function(err,json){
               if(err){

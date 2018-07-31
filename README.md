@@ -1,6 +1,6 @@
-Mini Project: 
+# Mini Project: 
 
-MRITS - Student Chapter Web app
+### MRITS - Student Chapter Web app
 
 Designed by: <br>
     - Pavan Lal Boro <br>

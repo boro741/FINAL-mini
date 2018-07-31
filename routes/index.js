@@ -48,7 +48,10 @@ Event.find().then(function(event){
 router.get('/',function(req, res){
 	findEve();
 	res.render('home',{
-		poster
+		eventName,
+		poster,
+		eventDate,
+		description
 	});
 });
 

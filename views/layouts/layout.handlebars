@@ -34,6 +34,11 @@
     .logo a:hover{
       color: yellow;
     }
+
+    .logout {
+      margin-right: 10%;
+      background: red;
+    }
   </style>
   <script>
 			new WOW().init();
@@ -47,8 +52,8 @@
             <li role="presentation"><a class="head" href="/">Home</a></li>
             <li role="presentation"><a class="head" href="http://localhost:3000/#timeline">Timeline</a></li>
             {{#if user}}
-              <li role="presentation"><a class="head" href="/dashboard">Dashboard</a></li>
-              <li role="presentation"><a class="head" href="/users/logout">Logout</a></li>
+              <li role="presentation"><a  class="head" href="/dashboard">Dashboard</a></li>
+              <li role="presentation"><a class="head logout" href="/users/logout">Logout</a></li>
             {{else}}
               <li role="presentation"><a class="head" href="/users/login">Login</a></li>
               <li role="presentation"><a class="head" href="/users/register">Register</a></li>
@@ -131,9 +136,36 @@
 	</div>
 
 <footer class="footer">
-    <p style="text-align:center;">MIT License &copy; 2018  &bull; Pavan Boro, Manoj, Rehmat Wali </p>
+    <p style="text-align:center;">MIT License &copy; 2018  &bull; Pavan Boro, Manoj, Rahmath vali </p>
 </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="/js/jquery.min.js"></script>
+    <script>
+    /*  var eventName = eventName.split(',');
+      var eventDate = eventDate.split(',');
+      var description = description.split(',');
+      var i = 0,j=0;
+      var month = new Array();
+      month[0] = "Jan";
+      month[1] = "Feb";
+      month[2] = "Mar";
+      month[3] = "Apr";
+      month[4] = "May";
+      month[5] = "Jun";
+      month[6] = "Jul";
+      month[7] = "Aug";
+      month[8] = "Sept";
+      month[9] = "Oct";
+      month[10] = "Nov";
+      month[11] = "Dec";
+
+      eventName.forEach(function(e){
+        var d = new Date(eventDate[i]);
+        var date = d.getDate();
+        var m = month[d.getMonth()];
+         $("#timeline").html('<article class="wow slideInLeft" data-delay="10s"><div class="inner"><span class="date"><span class="day">'+date+'<sup>th</span><span class="month">'+m+'</span><span class="year">2018</span></span><h2>'+e+'</h2><p>'+description[i]+'</p></div></article>');
+        i++;
+      });*/
+    </script>
 </body>
 </html>

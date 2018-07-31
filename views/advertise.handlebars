@@ -3,6 +3,7 @@
     display: none;
 }
 </style>
+<script src="/js/jquery.min.js"></script>
 <form action="/advertise" method="post">
   <input type="checkbox" name="SMS" value="sms"> SMS<br>
   <input type="checkbox" name="Email" value="email" > Email<br>
@@ -25,8 +26,8 @@
 
   <br>
 
-   <label for="sel1">Select Event:</label>
-      <select class="form-control" id="selectBox">
+   <label for="sel1"  >Select Event:</label>
+      <select class="form-control" id="selectBox" name="selectPicker">
       </select>
 
     <hr>
