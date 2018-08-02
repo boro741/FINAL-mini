@@ -8,13 +8,13 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="/js/jquery.min.js"></script>
-<form action="/regEvent" method="post" id="eveForm" class="form-group">
+<form action="/regPart" method="post" id="eveForm" class="form-group">
   <h2>Team Register</h2>
   
   <hr>
     <h3>Participant 1:</h3>
   <label for="rollno">Roll no. : </label>  
-  <input type="text" name="" id="rollno" class="form-control"> 
+  <input type="text" name="rollno" id="rollno" class="form-control"> 
 
   <br><br>
 
@@ -54,7 +54,7 @@
 $(document).ready(function(){
          var n = getUrlParameter('size') || 1;
         for(var i=2; i <= n; i++){
-          $('<h3>Participant: '+i+'</h3><label for="rollno">Roll no. : </label><input type="text" name="" id="rollno" class="form-control"><br><br><label for="contact">Contact Number: </label><input type="number" id="contact" class="form-control">').appendTo('#teamMates');
+          $('<h3>Participant: '+i+'</h3><label for="rollno" >Roll no. : </label><input type="text" name="rollno" id="rollno" class="form-control"><br><br><label for="contact">Contact Number: </label><input type="number" id="contact" class="form-control">').appendTo('#teamMates');
        }
 });
 

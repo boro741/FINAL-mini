@@ -15,6 +15,15 @@ var ParticipantSchema = mongoose.Schema({
 	},
 	mobile: {
 		type: Number
+	},
+	branch: {
+		type: String
+	},
+	section: {
+		type: String
+	},
+	year: {
+		type: Number
 	}
 });
 

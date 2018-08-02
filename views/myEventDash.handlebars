@@ -1,0 +1,18 @@
+<style>
+  #event-timeline{
+    display: none;
+}
+</style>
+<div class="myEvent"></div>
+<script src="/js/jquery.min.js"></script>
+<script>
+  var eventName = '{{eventName}}';
+  eventName = eventName.split(',');
+  //console.log('EventName:: ',eventName[0]);
+
+   eventName.forEach(function(e){
+     $(".myEvent").append('<a href="/myEvePart?event='+e+'" >'+e+'</a><br>');
+  });
+ 
+ 
+</script>

@@ -11,9 +11,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var multer = require('multer');
-var aws = require('aws-sdk');
-
-const S3_BUCKET = process.env.S3_BUCKET;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/stuChaptLocal');
 var db = mongoose.connection;
@@ -23,6 +20,7 @@ var users = require('./routes/users');
 var posters = require('./routes/posters');
 var events = require('./routes/events');
 var advertise = require('./routes/advertise');
+//var myEvents = require('./routes/myEvents');
 
 // Init App
 var app = express();
@@ -88,6 +86,7 @@ app.use('/users', users);
 app.use('/posters',posters);
 app.use('/events',events);
 app.use('/advertise',advertise);
+//app.use('/myEvents',myEvents);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

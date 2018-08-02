@@ -1,0 +1,54 @@
+<style>
+  #event-timeline{
+    display: none;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+  <table class="eventBox">
+    <tr>
+      <th>Roll Number</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Branch</th>
+      <th>Section</th>
+      <th>year</th>
+    </tr>
+  </table>
+
+<script src="/js/jquery.min.js"></script>
+<script>
+    var rollNumber = '{{rollNo}}';
+    var name = '{{name}}';
+    var email = '{{email}}';
+    var mobile = '{{mobile}}';
+    var branch = '{{branch}}';
+    var section = '{{section}}';
+    var year = '{{year}}';
+    
+    var roll = rollNumber.split(','); 
+    var na = name.split(',');
+    var em = email.split(',');
+    var mob = mobile.split(',');
+    var bra = branch.split(',');
+    var sec = section.split(',');
+    var ye = year.split(',');
+   console.log(na[1]);
+   for(var i=0;i<roll.length;i++){
+        $('<tr><td>'+roll[i]+'</td><td>'+na[i]+'</td><td>'+em[i]+'</td><td>'+mob[i]+'</td><td>'+bra[i]+'</td><td>'+sec[i]+'</td><td>'+ye[i]+'</td></tr>').appendTo(".eventBox");
+   }
+</script>
