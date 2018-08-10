@@ -91,46 +91,9 @@ router.get('/myEventDash',function(req,res){
 	res.render('myEventDash',{eventName});
 });
 
-var rollNumber = new Array();
-
-function eventFind(my_event){
-	// EventPart.find({'eventName':my_event}).then(function(a){
-	// 	//console.log(a);
-	// 	a.forEach(function(roll){
-	// 		rollNumber.push(roll.rollNo);
-	// 	});
-	// });
-	// EventPart.find({'eventName':'Ebullienza'},function(err,response){
-	// 	//console.log(response);
-	// 	response.forEach(function(roll){
-	// 		rollNumber.push(roll.rollNo);
-	// 	});
-	// });
-	var res = {};
-	var a;
-	// EventPart.aggregate([
-	// 	{ "$match": { "eventName": "Ebullienza" } },
-	// 	{
-	// 		"$lookup": {
-	// 			"from": "participants",
-	// 			"localField": "rollNo",
-	// 			"foreignField": "rollNo",
-	// 			"as": "Participants"
-	// 		}
-	// 	}
-	// ]).exec(function(err, results){
-	// 	res = results;
-	// 	a = Object.keys(results).map(function(key) {
-	// 		return [Number(key), results[key]];
-	// 	  });
-	// 	console.log(a);
-	//  })
-}
-
 router.get('/myEvePart',function(req,res){
 	var my_event = req.query.event;
 	var abc = new Array();
-	//eventFind(my_event);
 	EventPart.aggregate([
 		{ "$match": { "eventName": my_event } },
 		{
@@ -142,9 +105,6 @@ router.get('/myEvePart',function(req,res){
 			}
 		}
 	]).exec(function(err, results){
-		//res.locals.quiz  =  JSON.stringify(results);
-		//res.json(results);
-		//var re = JSON.stringify(results)
 		var rollNo = new Array();
 		var name = new Array();
 		var email = new Array();
@@ -153,14 +113,16 @@ router.get('/myEvePart',function(req,res){
 		var section = new Array();
 		var year = new Array();
 		results.forEach(function(e){
-			console.log(e);
-			rollNo.push(e.Participants[0].rollNo);
-			name.push(e.Participants[0].name);
-			email.push(e.Participants[0].email);
-			mobile.push(e.Participants[0].mobile);
-			branch.push(e.Participants[0].branch);
-			section.push(e.Participants[0].section);
-			year.push(e.Participants[0].year);
+			console.log('e: ',e);
+			if(e.Participants[0].rollNo){
+				rollNo.push(e.Participants[0].rollNo);
+				name.push(e.Participants[0].name);
+				email.push(e.Participants[0].email);
+				mobile.push(e.Participants[0].mobile);
+				branch.push(e.Participants[0].branch);
+				section.push(e.Participants[0].section);
+				year.push(e.Participants[0].year);
+			}
 		});
 		console.log(rollNo);
 		console.log(name);
@@ -174,20 +136,17 @@ router.get('/myEvePart',function(req,res){
 router.post('/regPart', ensureAuthenticated, function(req, res){
 	var ev = req.body.eventSelect;
 	var rollno = req.body.rollno;
-	//console.log("Roll No. ",rollno[1]);
-
-	
 	var QRCode = require('qrcode')
 	var url;
 	var team = Math.floor(Math.random() * 100) + 1;
 
 	rollno.forEach(function(r){
-		var newEventPart = new eventPart({
+		var newEventPart = new EventPart({
 			rollNo : r,
 			eventName: ev,
 			team: team
 		});
-		eventPart.createParticipant(newEventPart, function (err, event) {
+		EventPart.createParticipant(newEventPart, function (err, event) {
 			if (err) throw err;
 				console.log(event);
 		});	
